@@ -1,3 +1,13 @@
+class CookBook:
+    def __init__(self, name_book):
+        self.name_book = name_book
+        self.dishes = []
+
+    def count_ingerdients_dishes(self, number_person):
+        for dish in self.dishes:
+            dish.show_ingredients_for_person(number_person)
+
+
 class Dish:
     def __init__(self, name_dish):
         self.name_dish = name_dish
@@ -14,11 +24,6 @@ class Ingredient:
         self.name_ingredient = name_ingredient
         self.count = count
         self.measure = measure
-
-
-def count_ingerdients_dishes(number_person):
-    for dish in cook_book:
-        dish.show_ingredients_for_person(number_person)
 
 
 potato = Ingredient('картофель', 100, 'гр.')
@@ -49,6 +54,8 @@ pizza.ingredient = [cheese, tomato, dough, bacon, sausage, mushroom]
 fruit_dessert = Dish('фруктовый десерт')
 fruit_dessert.ingredient = [persimmon, kiwi, curd, sugar, honey]
 
-cook_book = [salad, pizza, fruit_dessert]
+cook_book = CookBook('кулинарная книга')
+cook_book.dishes = [salad, pizza, fruit_dessert]
 
-count_ingerdients_dishes(int(input('Введите количество персон: ')))
+
+cook_book.count_ingerdients_dishes(int(input('Введите количество персон: ')))
